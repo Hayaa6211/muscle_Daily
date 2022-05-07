@@ -47,7 +47,7 @@ class Tweet:
         if year == None: year = self.year
         if month== None: month= self.month
         if day ==  None: day  = self.day
-        text = f"#はやあ毎日筋トレ\n\n{year}年{month}月{day}日のツイート数は{count}だったので今日の筋トレ回数は{count*10}回です．ふぁいてぃん💪💪💪"
+        text = f"#はやあ毎日筋トレ\n\n{year}年{month}月{day}日のツイート数は{count}だったので今日の筋トレ回数は{count*5}回です．ふぁいてぃん💪💪💪"
         return text
 
     def Do_Tweet(self,text:str,pic:str = None):
