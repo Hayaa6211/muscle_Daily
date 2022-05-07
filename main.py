@@ -5,10 +5,10 @@ from datetime import datetime,timezone,date
 data = []
 class Tweet:
     def __init__(self):
-        self.api_key = "r2YQ54AXI26TrGX3kcicidM0k"
-        self.api_secret = "9c7y2zu7YmMw6cCjjwGVVS3bzYrB6PyT3lOkWSMYRMhBQ2RJF6"
-        self.access_token = "1427256989277593602-beIFUi4erQ5FrQQHIBM0EZ3pjAiaDC"
-        self.access_secret = "T4vOdiSOJXl4rvDz4Yzb3U2WxaL8T68T1Cwr7Mq3LgwVM"
+        self.api_key = os.getenv("API_Key")
+        self.api_secret = os.getenv("API_Key_Secret")
+        self.access_token = os.getenv("Access_Token")
+        self.access_secret = os.getenv("Access_Token_Secret")
         self.count = 0
         self.tweet = []
 
@@ -47,7 +47,7 @@ class Tweet:
         if year == None: year = self.year
         if month== None: month= self.month
         if day ==  None: day  = self.day
-        text = f"{year}年{month}月{day}日のツイート数は{count}だったので今日の筋トレ回数は{count*10}回です．ふぁいてぃん💪💪💪"
+        text = f"#はやあ毎日筋トレ\n\n{year}年{month}月{day}日のツイート数は{count}だったので今日の筋トレ回数は{count*10}回です．ふぁいてぃん💪💪💪"
         return text
 
     def Do_Tweet(self,text:str,pic:str = None):
@@ -96,7 +96,7 @@ def main():
     tweets = t.check_date(tweets,startDate,endDate)
     count = t.count_tweet(tweets)
     text = t.make_Tweet(count=count)
-    print(text)
+    t.Do_Tweet(text)
 
 if __name__ == "__main__":
     main()
